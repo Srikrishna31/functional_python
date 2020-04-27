@@ -1,5 +1,6 @@
 from typing import Callable
 
+
 class Mersenne:
     def __init__(self, algorithm: Callable[[int], int]) -> None:
         self.pow2 = algorithm
@@ -19,10 +20,11 @@ def multy(b: int) -> int:
 
 def faster(b: int) -> int:
     if b == 0: return 1
-    if b & 2 == 1: return 2*faster(b - 1)
+    if b % 2 == 1: return 2*faster(b - 1)
     t = faster(b // 2)
     return t * t
 
-shifty = Mersenne(shifty)
-multy = Mersenne(multy)
-faster = Mersenne(faster)
+
+shift = Mersenne(shifty)
+mult = Mersenne(multy)
+fast = Mersenne(faster)
