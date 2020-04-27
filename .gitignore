@@ -1,0 +1,4 @@
+bazel-bin
+bazel-functional_python
+bazel-out
+bazel-testlogs
