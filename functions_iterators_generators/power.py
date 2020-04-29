@@ -9,6 +9,7 @@ class Mersenne:
     def __call__(self, arg: int) -> int:
         return self.pow2(arg) - 1
 
+
 def shifty(b: int) -> int:
     return 1 << b
 
