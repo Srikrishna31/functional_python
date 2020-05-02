@@ -1,6 +1,5 @@
 from typing import Iterator
 import math
-from symbol import yield_expr
 
 
 def pfactors(x: int) -> Iterator[int] :
@@ -38,6 +37,5 @@ def pfactors_recursive(x: int) -> Iterator[int] :
         return
 
     yield from go(x, 3)
-
 
 
