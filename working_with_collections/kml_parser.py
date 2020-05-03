@@ -17,7 +17,7 @@ objects out of the text and attribute values.
 """
 
 import xml.etree.ElementTree as XML
-from typing import Text, List, TextIO, Iterable
+from typing import Text, List, TextIO, Iterable, Tuple
 
 def row_iter_kml(file_obj: TextIO) -> Iterable[List[Text]]:
     ns_map = {
@@ -32,4 +32,21 @@ def row_iter_kml(file_obj: TextIO) -> Iterable[List[Text]]:
 
 def comma_split(text: Text) -> List[Text]:
     return text.split(",")
+
+
+def pick_lat_lon(lon: Text, lat: Text, alt: Text) -> Tuple[Text, Text]:
+    return lat,lon
+
+
+Rows = Iterable[List[Text]]
+LL_Text = Tuple[Text,Text]
+
+def lat_lon_kml(row_iter: Rows) -> Iterable[LL_Text]:
+    """
+    This function will apply the pick_lat_lon() function to each row from a
+    source iterator. We've used *row to assign each element of the row-three
+    tuple to separate parameters of the pick_lat_lon() function. The function
+    can then extract and reorder the two relevant values from each three-tuple
+    """
+    return (pick_lat_lon(*row) for row in row_iter)
 
