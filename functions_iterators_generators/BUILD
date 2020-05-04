@@ -19,7 +19,8 @@ py_test(
     deps = [
         ":func_iter_gen",
         requirement("pytest")
-    ]
+    ],
+    visibility = ["//visibility:private"]
 )
 
 
@@ -31,7 +32,8 @@ py_test(
     deps = [
         ":func_iter_gen",
         requirement("pytest")
-    ]
+    ],
+    visibility = ["//visibility:private"]
 )
 
 py_test(
@@ -42,5 +44,15 @@ py_test(
     deps = [
         ":func_iter_gen",
         requirement("pytest")
+    ],
+    visibility = ["//visibility:private"]
+)
+
+test_suite(
+    name = "test_functions_iterators_generators",
+    tests = [
+        ":test_power",
+        ":test_prime_factors",
+        ":test_static_mapping"
     ]
 )
