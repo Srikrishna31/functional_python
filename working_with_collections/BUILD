@@ -4,6 +4,7 @@ py_library(
     name="working_with_collections",
     srcs = [
         "adjacent_pairer.py",
+        "haversine.py",
         "__init__.py",
         "kml_parser.py",
     ],

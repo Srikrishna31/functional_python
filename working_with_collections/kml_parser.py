@@ -18,6 +18,7 @@ objects out of the text and attribute values.
 
 import xml.etree.ElementTree as XML
 from typing import Text, List, TextIO, Iterable, Tuple
+from working_with_collections import haversine
 
 def row_iter_kml(file_obj: TextIO) -> Iterable[List[Text]]:
     ns_map = {
@@ -40,8 +41,11 @@ def pick_lat_lon(lon: Text, lat: Text, alt: Text) -> Tuple[Text, Text]:
 
 Rows = Iterable[List[Text]]
 LL_Text = Tuple[Text,Text]
+LL_Text_Iter = Iterable[LL_Text]
+LL_Float_Iter = Iterable[Tuple[float, float]]
 
-def lat_lon_kml(row_iter: Rows) -> Iterable[LL_Text]:
+
+def lat_lon_kml(row_iter: Rows) -> LL_Text_Iter:
     """
     This function will apply the pick_lat_lon() function to each row from a
     source iterator. We've used *row to assign each element of the row-three
@@ -50,3 +54,28 @@ def lat_lon_kml(row_iter: Rows) -> Iterable[LL_Text]:
     """
     return (pick_lat_lon(*row) for row in row_iter)
 
+
+
+def float_from_pair(lat_lon_iter: LL_Text_Iter) -> LL_Float_Iter:
+    return (
+        tuple((float(lat), float(lon)))
+        for lat, lon in lat_lon_iter
+    )
+
+
+def legs(source: TextIO) -> LL_Float_Iter:
+    iterator = float_from_pair(lat_lon_kml(row_iter_kml(source)))
+    begin = next(iterator)
+    for end in iterator:
+        yield begin, end
+        begin = end
+
+    # return float_from_pair(lat_lon_kml(row_iter_kml(source)))
+
+
+
+def trip(source: TextIO) -> Iterable[Tuple[haversine.Point, haversine.Point, float]]:
+    return (
+            tuple((start, end, round(haversine.haversine(start, end), 4)))
+            for start, end in legs(source)
+           )
