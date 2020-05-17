@@ -50,3 +50,26 @@ def group_by_seq_alternative(n: int, sequence: Flat) -> Grouped_Iter:
     """
     return zip(*(sequence[i::n] for i in range(n)))
 
+
+def digits(x: int, b: int) -> Iterator[int]:
+    """
+    Given a number and its base, this function returns
+    an iterator that produces the digits of the number
+    in that base. Note that there is no error checking
+    if the number confirms to the base. The behavior
+    would be undefined, if it is not the case.
+    """
+    if x == 0: return
+    yield x % b
+    for d in digits (x // b, b):
+        yield d
+
+
+def reversed_digits(x: int, b: int) -> Iterator[int]:
+    """
+    Given a number ant its base, this function returns
+    an iterator that produces the digits of the number
+    in that base in reverse order.
+    """
+    return reversed(tuple(digits(x,b)))
+
