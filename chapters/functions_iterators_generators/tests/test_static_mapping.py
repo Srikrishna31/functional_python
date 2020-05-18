@@ -1,5 +1,5 @@
 from collections import namedtuple
-from functions_iterators_generators import static_mapping
+from chapters.functions_iterators_generators import static_mapping
 import pytest
 
 Color = namedtuple("Color", ("red", "green", "blue", "name"))

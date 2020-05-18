@@ -18,7 +18,7 @@ objects out of the text and attribute values.
 
 import xml.etree.ElementTree as XML
 from typing import Text, List, TextIO, Iterable, Tuple
-from working_with_collections import haversine
+from chapters.working_with_collections import haversine
 
 def row_iter_kml(file_obj: TextIO) -> Iterable[List[Text]]:
     ns_map = {

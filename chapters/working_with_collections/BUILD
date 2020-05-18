@@ -1,5 +1,7 @@
 load ("@dependencies_pytest//:requirements.bzl", "requirement")
 
+package(default_visibility = ["//chapters:__pkg__"])
+
 py_library(
     name="working_with_collections",
     srcs = [
@@ -10,7 +12,7 @@ py_library(
         "kml_parser.py",
         "sequence_structure.py"
     ],
-    srcs_version = "PY3"
+    srcs_version = "PY3",
 )
 
 py_test(
@@ -23,7 +25,7 @@ py_test(
         requirement("pytest")
     ],
     data = [
-        "//working_with_collections/data:kml_files",
+        "//chapters/working_with_collections/data:kml_files",
     ],
     visibility = ["//visibility:private"]
 )
@@ -38,7 +40,7 @@ py_test(
         requirement("pytest")
     ],
     data = [
-        "//working_with_collections/data:kml_files",
+        "//chapters/working_with_collections/data:kml_files",
     ],
     visibility = ["//visibility:private"]
 )

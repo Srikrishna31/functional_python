@@ -1,4 +1,4 @@
-from working_with_collections import adjacent_pairer as ap
+from chapters.working_with_collections import adjacent_pairer as ap
 import pytest
 
 def test_pairs_recursive() -> None:

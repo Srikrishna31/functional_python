@@ -1,5 +1,5 @@
 import pytest
-from functions_iterators_generators import power
+from chapters.functions_iterators_generators import power
 
 def test_power_shifty():
     assert power.shift(4) == 15

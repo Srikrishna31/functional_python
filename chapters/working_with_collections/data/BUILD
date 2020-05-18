@@ -3,5 +3,5 @@ filegroup(
     srcs = [
         "KML_Sample.kml"
     ],
-    visibility = ["//working_with_collections:__pkg__"]
+    visibility = ["//chapters/working_with_collections:__pkg__"]
 )

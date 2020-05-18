@@ -1,4 +1,4 @@
-from working_with_collections import kml_parser
+from chapters.working_with_collections import kml_parser
 import pytest
 #According to the following stack overflow post, import urllib.request rather than just urllib.
 # https://stackoverflow.com/questions/37042152/python-3-5-1-urllib-has-no-attribute-request

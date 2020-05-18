@@ -1,5 +1,7 @@
 load("@dependencies_pytest//:requirements.bzl", "requirement")
 
+package(default_visibility = ["//chapters:__pkg__"])
+
 py_library(
     name = "func_iter_gen",
     srcs = [
@@ -8,7 +10,7 @@ py_library(
         "prime_factors.py",
         "static_mapping.py",
     ],
-    srcs_version = "PY3"
+    srcs_version = "PY3",
 )
 
 py_test(
@@ -54,5 +56,5 @@ test_suite(
         ":test_power",
         ":test_prime_factors",
         ":test_static_mapping"
-    ]
+    ],
 )

@@ -1,8 +1,21 @@
 
-package_group(
+
+py_library(
     name = "functional_python",
-    packages = [
-        "//funtions_iterators_generators",
-        "//working_with_collections",
+    srcs = [
+        "__init__.py",
+    ],
+    srcs_version = "PY3",
+    deps = [
+        "//chapters/functions_iterators_generators:func_iter_gen",
+        "//chapters/working_with_collections",
+    ]
+)
+
+test_suite(
+    name = "test_functional_python",
+    tests = [
+        "//chapters/functions_iterators_generators:test_functions_iterators_generators",
+        "//chapters/working_with_collections:test_working_with_collections"
     ]
 )
