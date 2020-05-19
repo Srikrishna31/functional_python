@@ -10,11 +10,11 @@ This project uses rules_python to properly setup dependencies like pytest and ot
 
 # Organization
 The code is organized as follows:
-    1. WORKSPACE and top level BUILD files - designate the project related items.
-    2. chapters module - This is the core of the project, where any new chapter module will be added. Each chapter contains certain aspects of python, that have been explored.
-    3. dependencies - Any third party dependencies needed by the modules. Eg., the tests use pytest, so it is one of the dependencies.
-    4. .gitignore file describing the artifacts to be ignored from consideration to adding into the repository.
-    5. .gitattributes file describing the line ending settings for the files.
+1. WORKSPACE and top level BUILD files - designate the project related items.
+2. chapters module - This is the core of the project, where any new chapter module will be added. Each chapter contains certain aspects of python, that have been explored.
+3. dependencies - Any third party dependencies needed by the modules. Eg., the tests use pytest, so it is one of the dependencies.
+4. .gitignore file describing the artifacts to be ignored from consideration to adding into the repository.
+5. .gitattributes file describing the line ending settings for the files.
 
 # Specifying Third Party Dependencies
 The way to specify dependencies is:
