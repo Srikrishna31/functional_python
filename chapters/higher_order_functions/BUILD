@@ -18,6 +18,9 @@ py_library(
     srcs_version = "PY3",
     deps = [
         "//chapters/working_with_collections",
+    ],
+    data = [
+        "//chapters/working_with_collections/data:kml_files"
     ]
 )
 
