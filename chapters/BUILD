@@ -8,7 +8,7 @@ py_library(
     imports = ["."],
     srcs_version = "PY3",
     deps = [
-        "//chapters/functions_iterators_generators:functions_iterators_generators",
+        "//chapters/functions_iterators_generators",
         "//chapters/higher_order_functions",
         "//chapters/working_with_collections",
     ]
