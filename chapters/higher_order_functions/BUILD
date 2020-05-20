@@ -5,14 +5,16 @@ package(default_visibility = ["//chapters:__pkg__"])
 _MODULE = "higher_order_functions"
 
 _TESTS = [
-    "test_min_max"
+    "test_min_max",
+    "test_map_filter"
 ]
 
 
 py_library(
     name = _MODULE,
     srcs = [
-        "min_max.py"
+        "map_filter.py",
+        "min_max.py",
     ],
     imports = ["."],
     srcs_version = "PY3",
