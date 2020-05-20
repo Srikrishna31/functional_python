@@ -1,4 +1,4 @@
-from chapters.working_with_collections import kml_parser
+import kml_parser
 import pytest
 #According to the following stack overflow post, import urllib.request rather than just urllib.
 # https://stackoverflow.com/questions/37042152/python-3-5-1-urllib-has-no-attribute-request
@@ -7,7 +7,7 @@ import urllib.request
 URL = "https://developers.google.com/kml/documentation/KML_Samples.kml"
 
 def test_kml_parser() -> None:
-    with open("working_with_collections/data/KML_Sample.kml", "r") as source:
+    with open("chapters/working_with_collections/data/KML_Sample.kml", "r") as source:
         for  row in kml_parser.row_iter_kml(source):
             print (row)
 

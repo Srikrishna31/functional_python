@@ -2,26 +2,32 @@ load("@dependencies_pytest//:requirements.bzl", "requirement")
 
 package(default_visibility = ["//chapters:__pkg__"])
 
+IMPORTS = ["."]
+
 py_library(
-    name = "func_iter_gen",
+    name = "functions_iterators_generators",
     srcs = [
         "__init__.py",
         "power.py",
         "prime_factors.py",
         "static_mapping.py",
     ],
+    imports=IMPORTS,
     srcs_version = "PY3",
 )
+
+DEPS = [
+    ":functions_iterators_generators",
+    requirement("pytest")
+]
 
 py_test(
     name = "test_power",
     srcs = [
         "tests/test_power.py",
     ],
-    deps = [
-        ":func_iter_gen",
-        requirement("pytest")
-    ],
+    imports = IMPORTS,
+    deps = DEPS,
     visibility = ["//visibility:private"]
 )
 
@@ -31,10 +37,8 @@ py_test(
     srcs = [
         "tests/test_prime_factors.py"
     ],
-    deps = [
-        ":func_iter_gen",
-        requirement("pytest")
-    ],
+    imports = IMPORTS,
+    deps = DEPS,
     visibility = ["//visibility:private"]
 )
 
@@ -43,10 +47,8 @@ py_test(
     srcs = [
         "tests/test_static_mapping.py"
     ],
-    deps = [
-        ":func_iter_gen",
-        requirement("pytest")
-    ],
+    imports = IMPORTS,
+    deps = DEPS,
     visibility = ["//visibility:private"]
 )
 
