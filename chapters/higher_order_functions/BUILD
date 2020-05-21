@@ -5,6 +5,7 @@ package(default_visibility = ["//chapters:__pkg__"])
 _MODULE = "higher_order_functions"
 
 _TESTS = [
+    "test_callable_classes",
     "test_min_max",
     "test_map_filter"
 ]
@@ -13,6 +14,7 @@ _TESTS = [
 py_library(
     name = _MODULE,
     srcs = [
+        "callable_classes.py",
         "map_filter.py",
         "min_max.py",
     ],
