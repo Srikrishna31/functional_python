@@ -1,4 +1,4 @@
-from chapters.working_with_collections import basic_stats as bs
+import basic_stats as bs
 import pytest
 
 

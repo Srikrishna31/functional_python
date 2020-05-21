@@ -1,5 +1,5 @@
 import pytest
-from chapters.functions_iterators_generators import prime_factors as pf
+import prime_factors as pf
 from typing import List
 
 TEST_VALUES = {

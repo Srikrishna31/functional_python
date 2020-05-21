@@ -1,4 +1,4 @@
-from chapters.working_with_collections import sequence_structure as ss
+import sequence_structure as ss
 import pytest
 
 LIST1 = [1,2,3,4,5,6]

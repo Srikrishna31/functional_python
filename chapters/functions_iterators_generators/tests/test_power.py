@@ -1,5 +1,5 @@
 import pytest
-from chapters.functions_iterators_generators import power
+import power
 
 def test_power_shifty():
     assert power.shift(4) == 15
@@ -17,4 +17,4 @@ def test_power_faster():
 
 
 if __name__=="__main__":
-    raise SystemExit(pytest.main([__file__]))
+    raise SystemExit(pytest.main([__file__, "-v"]))

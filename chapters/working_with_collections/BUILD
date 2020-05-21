@@ -1,9 +1,11 @@
 load ("@dependencies_pytest//:requirements.bzl", "requirement")
 
-package(default_visibility = ["//chapters:__pkg__"])
+package(default_visibility = ["//chapters:__subpackages__"])
+
+_MODULE = "working_with_collections"
 
 py_library(
-    name="working_with_collections",
+    name=_MODULE,
     srcs = [
         "adjacent_pairer.py",
         "basic_stats.py",
@@ -12,16 +14,28 @@ py_library(
         "kml_parser.py",
         "sequence_structure.py"
     ],
+    imports = ["."],
     srcs_version = "PY3",
 )
 
+
+_TESTS = [
+    "test_adjacent_pairer",
+    "test_basic_stats",
+    "test_kml_parser",
+    "test_sequence_structure"
+]
+
+
+[
 py_test(
-    name = "test_kml_parser",
+    name = "%s" %(n),
     srcs = [
-        "tests/test_kml_parser.py"
+        "tests/%s.py" %(n)
     ],
+    imports = ["."],
     deps = [
-        ":working_with_collections",
+        ":%s"%(_MODULE),
         requirement("pytest")
     ],
     data = [
@@ -29,52 +43,10 @@ py_test(
     ],
     visibility = ["//visibility:private"]
 )
+for n in _TESTS
+]
 
-py_test(
-    name = "test_adjacent_pairer",
-    srcs = [
-        "tests/test_adjacent_pairer.py"
-    ],
-    deps = [
-        ":working_with_collections",
-        requirement("pytest")
-    ],
-    data = [
-        "//chapters/working_with_collections/data:kml_files",
-    ],
-    visibility = ["//visibility:private"]
-)
-
-py_test(
-    name = "test_basic_stats",
-    srcs = [
-        "tests/test_basic_stats.py"
-    ],
-    deps = [
-        ":working_with_collections",
-        requirement("pytest")
-    ],
-    visibility = ["//visibility:private"]
-)
-
-py_test(
-    name = "test_sequence_structure",
-    srcs = [
-        "tests/test_sequence_structure.py"
-    ],
-    deps = [
-        ":working_with_collections",
-        requirement("pytest")
-    ],
-    visibility = ["//visibility:private"]
-)
 
 test_suite(
-    name="test_working_with_collections",
-    tests = [
-        ":test_adjacent_pairer",
-        ":test_basic_stats",
-        ":test_kml_parser",
-        ":test_sequence_structure"
-    ]
+    name="test_%s"%(_MODULE),
 )

@@ -10,11 +10,11 @@ This project uses rules_python to properly setup dependencies like pytest and ot
 
 # Organization
 The code is organized as follows:
-    1. WORKSPACE and top level BUILD files - designate the project related items.
-    2. chapters module - This is the core of the project, where any new chapter module will be added. Each chapter contains certain aspects of python, that have been explored.
-    3. dependencies - Any third party dependencies needed by the modules. Eg., the tests use pytest, so it is one of the dependencies.
-    4. .gitignore file describing the artifacts to be ignored from consideration to adding into the repository.
-    5. .gitattributes file describing the line ending settings for the files.
+1. WORKSPACE and top level BUILD files - designate the project related items.
+2. chapters module - This is the core of the project, where any new chapter module will be added. Each chapter contains certain aspects of python, that have been explored.
+3. dependencies - Any third party dependencies needed by the modules. Eg., the tests use pytest, so it is one of the dependencies.
+4. .gitignore file describing the artifacts to be ignored from consideration to adding into the repository.
+5. .gitattributes file describing the line ending settings for the files.
 
 # Specifying Third Party Dependencies
 The way to specify dependencies is:
@@ -26,7 +26,6 @@ The way to specify dependencies is:
 
 # Adding a new chapter module
 1. Make folder with appropriate name in chapters module, and add __init__.py
-2. Create a build file for the module, and add a py_library target, and as many py_test targets as needed.
-3. Finally, group all the py_test targets into a testsuite, so that they can be referenced from the chapters module.
-4. In the chapters' BUILD file, add the module dependency to py_library, and add the testsuite target in the tests attribute of the global test suite.
-5. Then do bazel build functional_python, bazel test test_functional_python and verify that the newly added module is building and it's tests are executing.
+2. Create a build file for the module, and add a py_library target, and as many py_test targets as needed in the _TESTS list.
+3. In the chapters' BUILD file, add the module dependency to py_library, and add the testsuite target in the tests attribute of the global test suite.
+4. Then do bazel build functional_python, bazel test test_functional_python and verify that the newly added module is building and it's tests are executing.

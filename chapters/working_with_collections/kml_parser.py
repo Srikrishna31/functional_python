@@ -18,7 +18,7 @@ objects out of the text and attribute values.
 
 import xml.etree.ElementTree as XML
 from typing import Text, List, TextIO, Iterable, Tuple
-from chapters.working_with_collections import haversine
+import haversine
 
 def row_iter_kml(file_obj: TextIO) -> Iterable[List[Text]]:
     ns_map = {
@@ -42,7 +42,8 @@ def pick_lat_lon(lon: Text, lat: Text, alt: Text) -> Tuple[Text, Text]:
 Rows = Iterable[List[Text]]
 LL_Text = Tuple[Text,Text]
 LL_Text_Iter = Iterable[LL_Text]
-LL_Float_Iter = Iterable[Tuple[float, float]]
+LL_Float = Tuple[float, float]
+LL_Float_Iter = Iterable[LL_Float]
 
 
 def lat_lon_kml(row_iter: Rows) -> LL_Text_Iter:
