@@ -8,6 +8,7 @@ py_library(
     name=_MODULE,
     srcs = [
         "recursions.py",
+        "reductions.py",
     ],
     imports = ["."],
     srcs_version = "PY3",
@@ -15,7 +16,8 @@ py_library(
 
 
 _TESTS = [
-    "test_recursions"
+    "test_recursions",
+    "test_reductions"
 ]
 
 
