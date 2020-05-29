@@ -10,6 +10,7 @@ py_library(
     deps = [
         "//chapters/functions_iterators_generators",
         "//chapters/higher_order_functions",
+        "//chapters/recursions_and_reductions",
         "//chapters/working_with_collections",
     ]
 )
@@ -19,6 +20,7 @@ test_suite(
     tests = [
         "//chapters/functions_iterators_generators:test_functions_iterators_generators",
         "//chapters/higher_order_functions:test_higher_order_functions",
+        "//chapters/recursions_and_reductions:test_recursions_and_reductions",
         "//chapters/working_with_collections:test_working_with_collections",
     ]
 )
