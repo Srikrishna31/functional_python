@@ -7,6 +7,7 @@ _MODULE = "recursions_and_reductions"
 py_library(
     name=_MODULE,
     srcs = [
+        "file_parsers.py",
         "recursions.py",
         "reductions.py",
     ],
@@ -17,7 +18,8 @@ py_library(
 
 _TESTS = [
     "test_recursions",
-    "test_reductions"
+    "test_reductions",
+    "test_file_parsers"
 ]
 
 
@@ -31,6 +33,9 @@ py_test(
     deps = [
         ":%s"%(_MODULE),
         requirement("pytest")
+    ],
+    data = [
+        "//chapters/%s/data:palette_files"%(_MODULE)
     ],
     visibility = ["//visibility:private"]
 )
