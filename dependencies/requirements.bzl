@@ -2,7 +2,9 @@ load("@rules_python//python:pip.bzl", "pip_import")
 
 
 #TODO: Write a rule in bazel to download the python interpreter and then run the code.
-interpreter_path = "C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/python.exe"
+#interpreter_path = "C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/python.exe"
+interpreter_path = "/usr/bin/python3.6"
+
 
 
 def load_deps():
