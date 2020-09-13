@@ -12,7 +12,8 @@ py_library(
         "//chapters/higher_order_functions",
         "//chapters/recursions_and_reductions",
         "//chapters/working_with_collections",
-    ]
+    ],
+    visibility = ["//:__pkg__"]
 )
 
 test_suite(
@@ -22,5 +23,6 @@ test_suite(
         "//chapters/higher_order_functions:test_higher_order_functions",
         "//chapters/recursions_and_reductions:test_recursions_and_reductions",
         "//chapters/working_with_collections:test_working_with_collections",
-    ]
+    ],
+    visibility = ["//:__pkg__"]
 )
