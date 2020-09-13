@@ -1,7 +1,9 @@
+load("@dependencies_pytest//:requirements.bzl", "requirement")
+
 package(default_visibility = ["//visibility:public"])
 
 py_test(
-    name = "pytest_test",
+    name = "test_pytest",
     srcs = [
         "test_pytest.py",
     ],
