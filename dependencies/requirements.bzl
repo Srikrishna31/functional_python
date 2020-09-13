@@ -9,6 +9,7 @@ def load_deps():
     # Create a central repo that knows about the dependencies needed for
     # requirements.txt.
     _import_mypy()
+    _import_iniconfig() # pytest dependency
     _import_pytest()
 
 
@@ -24,5 +25,13 @@ def _import_mypy():
         pip_import(   # or pip3_import
         name = "dependencies_mypy",
         requirements = "//dependencies/mypy:requirements.txt",
+        python_interpreter = interpreter_path
+    )
+
+
+def _import_iniconfig():
+    pip_import(
+        name = "dependencies_iniconfig",
+        requirements = "//dependencies/iniconfig:requirements.txt",
         python_interpreter = interpreter_path
     )
