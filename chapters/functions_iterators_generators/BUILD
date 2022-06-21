@@ -5,7 +5,7 @@ package(default_visibility = ["//chapters:__pkg__"])
 _MODULE = "functions_iterators_generators"
 
 py_library(
-    name = _MODULE,
+    name = "functions_iterators_generators",
     srcs = [
         "__init__.py",
         "power.py",

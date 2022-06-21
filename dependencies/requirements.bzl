@@ -1,45 +1,35 @@
-load("@rules_python//python:pip.bzl", "pip_import")
+load("@rules_python//python:pip.bzl", "pip_parse")
 
 
 #TODO: Write a rule in bazel to download the python interpreter and then run the code.
-interpreter_path = "C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/python.exe"
+interpreter_path = "C:/Users/coolk/AppData/Local/Programs/Python/Python310/python.exe"
 
 
 def load_deps():
     # Create a central repo that knows about the dependencies needed for
     # requirements.txt.
     _import_mypy()
-    _import_iniconfig() # pytest dependency
     _import_pytest()
     _import_coverage()
 
 
 def _import_pytest():
-    pip_import(   # or pip3_import
+    pip_parse(   # or pip3_import
         name = "dependencies_pytest",
-        requirements = "//dependencies/pytest:requirements.txt",
+        requirements_lock = "//dependencies/pytest:requirements.txt",
         python_interpreter = interpreter_path
     )
-
 
 def _import_mypy():
-    pip_import(   # or pip3_import
+    pip_parse(   # or pip3_import
         name = "dependencies_mypy",
-        requirements = "//dependencies/mypy:requirements.txt",
+        requirements_lock = "//dependencies/mypy:requirements.txt",
         python_interpreter = interpreter_path
     )
 
-
-def _import_iniconfig():
-    pip_import(
-        name = "dependencies_iniconfig",
-        requirements = "//dependencies/iniconfig:requirements.txt",
-    )
-
-
 def _import_coverage():
-    pip_import(
+    pip_parse(
         name = "dependencies_coverage",
-        requirements = "//dependencies/coverage:requirements.txt",
+        requirements_lock = "//dependencies/coverage:requirements.txt",
         python_interpreter = interpreter_path
     )

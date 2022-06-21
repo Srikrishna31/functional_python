@@ -8,12 +8,15 @@ py_library(
     imports = ["."],
     srcs_version = "PY3",
     deps = [
-        "//chapters/functions_iterators_generators",
-        "//chapters/higher_order_functions",
-        "//chapters/recursions_and_reductions",
-        "//chapters/working_with_collections",
+        "//chapters/functions_iterators_generators:functions_iterators_generators",
+        "//chapters/higher_order_functions:higher_order_functions",
+        "//chapters/recursions_and_reductions:recursions_and_reductions",
+        "//chapters/working_with_collections:working_with_collections",
     ],
-    visibility = ["//:__pkg__"]
+    visibility = [
+        "//:__pkg__",
+        "//examples:__pkg__"
+    ]
 )
 
 test_suite(
